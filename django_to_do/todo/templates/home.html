@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body style="background:skyblue">
+
+    <nav>
+        <a href="{% url 'home' %}">home</a>
+        <a href="{% url 'create' %}">create</a>
+        
+
+
+    </nav>
+    {% block content %}
+
+     <h1>Display all Tasks</h1>
+
+  
+
+<div style="background:white;width:70%;margin:auto; padding:10px 15px;border-radius:15px">
+    {% for task in tasks %}
+    <div style="padding:10px; margin:10px; background:whitesmoke">
+        <h3> {{task.title}}</h3>
+        <p> {{task.description}}</p>
+        {% if task.completed %}
+        <p> completed</p>
+        {% else %} 
+        <p>pending</p>
+        {%endif%}
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}
+</body>
+</html>
